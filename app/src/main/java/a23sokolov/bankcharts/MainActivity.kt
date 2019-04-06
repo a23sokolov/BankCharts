@@ -1,23 +1,26 @@
 package a23sokolov.bankcharts
 
+import a23sokolov.bankcharts.common.BaseActivity
 import android.os.Bundle
-import com.google.android.material.snackbar.Snackbar
-import androidx.appcompat.app.AppCompatActivity;
 import android.view.Menu
 import android.view.MenuItem
+import androidx.lifecycle.ViewModelProviders
 
 import kotlinx.android.synthetic.main.activity_main.*
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : BaseActivity<MainViewModel>() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         setSupportActionBar(toolbar)
+        initViewModel(ViewModelProviders.of(this).get(MainViewModel::class.java))
+    }
 
+    private fun initViewModel(viewModel: MainViewModel) {
+        afterViewModelInited(viewModel)
         fab.setOnClickListener { view ->
-            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                .setAction("Action", null).show()
+            viewModel.getPointsBtnClicked(10)
         }
     }
 
