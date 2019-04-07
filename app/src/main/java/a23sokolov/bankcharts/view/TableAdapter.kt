@@ -1,14 +1,12 @@
 package a23sokolov.bankcharts.view
 
 import a23sokolov.bankcharts.R
-import a23sokolov.bankcharts.network.Point
 import android.content.Context
-import android.graphics.drawable.Drawable
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.annotation.ColorRes
 import androidx.recyclerview.widget.RecyclerView
+import com.github.mikephil.charting.data.Entry
 import kotlinx.android.synthetic.main.point_item.view.*
 
 /**
@@ -26,13 +24,13 @@ class TableAdapter(
 
     private var points: List<DataToShow> = emptyList()
 
-    fun setPoints(newpoints: List<Point>) {
+    fun setPoints(newpoints: List<Entry>) {
         val header = if (newpoints.isEmpty()){
             emptyList()
         } else {
             listOf(DataToShow(xPointRowName, yPointRowName, backroundTwo))
         }
-        this.points = header + newpoints.mapIndexed { index, point -> DataToShow(point.x, point.y, getColor(index)) }
+        this.points = header + newpoints.mapIndexed { index, point -> DataToShow(point.x.toString(), point.y.toString(), getColor(index)) }
         notifyDataSetChanged()
     }
 

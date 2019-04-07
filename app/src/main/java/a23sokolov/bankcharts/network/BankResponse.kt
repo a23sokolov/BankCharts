@@ -1,8 +1,6 @@
 package a23sokolov.bankcharts.network
 
-import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
-import kotlinx.android.parcel.Parcelize
 
 /**
  * Created by a.v.sokolov
@@ -15,11 +13,10 @@ class BankResponse(
 class Response(
     val result: Int?,
     val message: String?,
-    val points: List<Point>?
+    @SerializedName("points") val pointsStr: List<PointStr>?
 )
 
-@Parcelize
-class Point(
+class PointStr(
     val x: String,
     val y: String
-): Parcelable
+)
