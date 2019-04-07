@@ -10,7 +10,8 @@
     <string name="error_no_internet_connection">Нет интернет подключения</string>
 
     <string name="inner_text_main_activity">Данное приложение позволяет получать с сервера набор рандомных точек, для их последующего отображения в графике и таблице.\nДля того чтобы скачать данные просто ткните на кнопку скачать</string>
-    <string name="main_btn_download">скачать</string>
+    <string name="edit_text_hint">Введите количество точек</string>
+    <string name="main_btn_download">Поехали</string>
 
     <string name="x_point">X</string>
     <string name="y_point">Y</string>

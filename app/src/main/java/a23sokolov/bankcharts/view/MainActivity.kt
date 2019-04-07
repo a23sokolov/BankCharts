@@ -21,7 +21,7 @@ class MainActivity : BaseActivity<MainViewModel>() {
     private fun initViewModel(viewModel: MainViewModel) {
         afterViewModelInited(viewModel)
         downloadBtn.setOnClickListener { view ->
-            viewModel.getPointsBtnClicked(10)
+            viewModel.getPointsBtnClicked(countPoints.text.toString().toInt())
         }
     }
 
