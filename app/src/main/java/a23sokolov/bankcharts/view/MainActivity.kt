@@ -6,7 +6,7 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import androidx.lifecycle.ViewModelProviders
-import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.content_main.*
 import kotlinx.android.synthetic.main.include_toolbar.*
 
 class MainActivity : BaseActivity<MainViewModel>() {
@@ -20,7 +20,7 @@ class MainActivity : BaseActivity<MainViewModel>() {
 
     private fun initViewModel(viewModel: MainViewModel) {
         afterViewModelInited(viewModel)
-        fab.setOnClickListener { view ->
+        downloadBtn.setOnClickListener { view ->
             viewModel.getPointsBtnClicked(10)
         }
     }
