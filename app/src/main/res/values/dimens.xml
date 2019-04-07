@@ -1,3 +1,5 @@
 <resources>
     <dimen name="fab_margin">16dp</dimen>
+
+    <dimen name="table_item_height">32dp</dimen>
 </resources>

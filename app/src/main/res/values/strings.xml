@@ -7,4 +7,7 @@
     <string name="progress_message">Пожалуйста, подождите…</string>
     <string name="error_unknown">Произошла неизвестная ошибка. Попробуйте позже.</string>
     <string name="error_no_internet_connection">Нет интернет подключения</string>
+
+    <string name="x_point">X</string>
+    <string name="y_point">Y</string>
 </resources>

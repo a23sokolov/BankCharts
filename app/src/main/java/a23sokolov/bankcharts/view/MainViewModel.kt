@@ -1,4 +1,4 @@
-package a23sokolov.bankcharts
+package a23sokolov.bankcharts.view
 
 import a23sokolov.bankcharts.common.BaseViewModel
 import a23sokolov.bankcharts.common.LoadingState

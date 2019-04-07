@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/container"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/table_item_height">
+
+    <View
+        android:id="@+id/indexDelimiter"
+        android:layout_width="1dp"
+        android:layout_height="match_parent"
+        android:background="@color/tableDelimiterColor"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/indexPoint" />
+
+    <TextView
+        android:id="@+id/indexPoint"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        app:layout_constraintLeft_toRightOf="@id/indexDelimiter"
+        app:layout_constraintRight_toLeftOf="@id/leftXPointDelimiter"
+        tools:text="1" />
+
+    <View
+        android:id="@+id/leftXPointDelimiter"
+        android:layout_width="1dp"
+        android:layout_height="match_parent"
+        android:background="@color/tableDelimiterColor"
+        app:layout_constraintLeft_toRightOf="@id/indexPoint"
+        app:layout_constraintRight_toLeftOf="@id/xPoint" />
+
+    <TextView
+        android:id="@+id/xPoint"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        app:layout_constraintLeft_toRightOf="@id/leftXPointDelimiter"
+        app:layout_constraintRight_toLeftOf="@id/rightXPointDelimiter"
+        tools:text="10.51" />
+
+    <View
+        android:id="@+id/rightXPointDelimiter"
+        android:layout_width="1dp"
+        android:layout_height="match_parent"
+        android:background="@color/tableDelimiterColor"
+        app:layout_constraintLeft_toRightOf="@id/xPoint"
+        app:layout_constraintRight_toLeftOf="@id/yPoint" />
+
+    <TextView
+        android:id="@+id/yPoint"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        app:layout_constraintLeft_toRightOf="@id/rightXPointDelimiter"
+        app:layout_constraintRight_toLeftOf="@id/right"
+        tools:text="10.51" />
+
+    <View
+        android:id="@+id/right"
+        android:layout_width="0.5dp"
+        android:layout_height="match_parent"
+        android:background="@color/tableDelimiterColor"
+        app:layout_constraintLeft_toRightOf="@id/yPoint"
+        app:layout_constraintRight_toRightOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>
