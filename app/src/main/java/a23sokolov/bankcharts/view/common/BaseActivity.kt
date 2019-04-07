@@ -1,9 +1,11 @@
-package a23sokolov.bankcharts.common
+package a23sokolov.bankcharts.view.common
 
 import a23sokolov.bankcharts.R
 import android.app.ProgressDialog
 import android.widget.Toast
+import androidx.annotation.DrawableRes
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.Toolbar
 import androidx.lifecycle.Observer
 
 /**
@@ -12,11 +14,28 @@ import androidx.lifecycle.Observer
 abstract class BaseActivity<VM : BaseViewModel> : AppCompatActivity() {
     private var progressDialog: ProgressDialog? = null
 
+    protected fun setToolbar(title: String?, @DrawableRes iconResId: Int, customToolbar: Toolbar? = null) {
+        val toolbar = customToolbar ?: this.findViewById(R.id.toolbar)
+        setSupportActionBar(toolbar)
+        supportActionBar?.run {
+            setDisplayHomeAsUpEnabled(true)
+            setDisplayShowTitleEnabled(true)
+            this.title = title
+        }
+        toolbar?.run {
+            setNavigationIcon(iconResId)
+            setNavigationOnClickListener { onBackPressed() }
+        }
+    }
+
     //todo добавить логику для автоматического вызова в родительском классе(BaseActivity)
     fun afterViewModelInited(viewModel: VM) {
-        viewModel.init()
+        viewModel.init(intent.extras)
         viewModel.getLoadingState().observe(this, Observer {
             processLoadingState(it)
+        })
+        viewModel.getInternalIntent().observe(this, Observer { internalIntent ->
+            internalIntent?.let { it.start(this) }
         })
     }
 

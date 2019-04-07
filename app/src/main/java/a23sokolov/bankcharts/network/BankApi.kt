@@ -11,7 +11,5 @@ import retrofit2.http.Query
  */
 interface BankApi {
     @POST("mobws/json/pointsList")
-    fun getChartPoints(@Body emptyRequest: EmptyRequest = EmptyRequest(), @Query("version") version: Float = 1.1F, @Query("count") count: Int): Single<BankResponse>
+    fun getChartPoints(@Body emptyRequest: Any = Any(), @Query("version") version: Float = 1.1F, @Query("count") count: Int): Single<BankResponse>
 }
-
-class EmptyRequest

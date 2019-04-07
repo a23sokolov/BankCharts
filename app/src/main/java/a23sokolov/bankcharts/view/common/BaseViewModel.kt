@@ -1,5 +1,7 @@
-package a23sokolov.bankcharts.common
+package a23sokolov.bankcharts.view.common
 
+import android.content.Intent
+import android.os.Bundle
 import androidx.annotation.CallSuper
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -13,10 +15,17 @@ import io.reactivex.disposables.Disposable
 open class BaseViewModel: ViewModel() {
     private val compositeDisposable: CompositeDisposable = CompositeDisposable()
     private val loadingState = MutableLiveData<LoadingState>()
+    private val internalIntent = MutableLiveData<InternalIntent?>()
     fun getLoadingState(): LiveData<LoadingState> = loadingState
+    fun getInternalIntent(): LiveData<InternalIntent?> = internalIntent
 
     @CallSuper
-    open fun init() = Unit
+    open fun init(args: Bundle?) = Unit
+
+    internal fun startIntent(internalIntent: InternalIntent) {
+        this.internalIntent.value = internalIntent
+        this.internalIntent.postValue( null)
+    }
 
     fun updateState(state: LoadingState) {
         loadingState.postValue(state)

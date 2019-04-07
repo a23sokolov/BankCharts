@@ -1,9 +1,10 @@
 package a23sokolov.bankcharts.view
 
-import a23sokolov.bankcharts.common.BaseViewModel
-import a23sokolov.bankcharts.common.LoadingState
 import a23sokolov.bankcharts.network.NetworkService
 import a23sokolov.bankcharts.network.Point
+import a23sokolov.bankcharts.view.charts.ChartActivity
+import a23sokolov.bankcharts.view.common.BaseViewModel
+import a23sokolov.bankcharts.view.common.LoadingState
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import io.reactivex.android.schedulers.AndroidSchedulers
@@ -24,7 +25,7 @@ class MainViewModel : BaseViewModel() {
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe({
                 updateState(LoadingState.ofProgress(false))
-                points.value = it.response.points
+                startIntent(ChartActivity.buildIntent(it.response.points!!))
             }, {
                 updateState(LoadingState.ofError(it.message))
             })
